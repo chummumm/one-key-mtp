@@ -12,7 +12,7 @@ sed -i "s/0000000054655212aa12221200000001/$secret/g" /etc/mtproxy/config.py &&
 sed -i 's/"secure": False,/"secure": True,/g' /etc/mtproxy/config.py
 sed -i 's/AD_TAG/#AD_TAG/g' /etc/mtproxy/config.py &&
 echo 开始注册mtproxy守护进程...... &&
-wget -q https://shells.tqlzyq.ltd/mtproxy.service -O /etc/systemd/system/mtproxy.service &&
+wget -q https://raw.githubusercontent.com/chummumm/one-key-mtp/master/mtproxy.service -O /etc/systemd/system/mtproxy.service &&
 sed -i "s/mtprotoproxy.py/\/etc\/mtproxy\/mtprotoproxy.py/g" /etc/systemd/system/mtproxy.service && 
 systemctl daemon-reload && 
 systemctl enable mtproxy &&
