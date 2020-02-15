@@ -2,7 +2,7 @@
 echo 开始安装mtproxy &&
 apt install git python3-pip xxd -y &&
 pip3 install cryptography &&
-git clone https://github.com/xiaoxiaobujidao/mtprotoproxy.git /etc/mtproxy &&
+git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy &&
 echo -n '请输入mtproxy运行端口:'
 read num &&
 sed -i "s/1973/$num/g" /etc/mtproxy/config.py &&
