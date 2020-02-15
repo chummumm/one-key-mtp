@@ -1,5 +1,6 @@
 #!/bin/bash
 echo 开始安装mtproxy &&
+apt update &&
 apt install git python3-pip xxd -y &&
 pip3 install cryptography &&
 git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy &&
