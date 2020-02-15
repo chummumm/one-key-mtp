@@ -1,0 +1,13 @@
+[Unit]
+Description=mtproxy manager
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/bin/python3 mtprotoproxy.py
+Restart=always
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
