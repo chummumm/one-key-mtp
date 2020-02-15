@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 开始删除mtproxy守护进程 &&
+echo 开始删除mtproxy守护进程...... &&
 systemctl stop mtproxy &&
 systemctl disable mtproxy &&
 systemctl daemon-reload &&
