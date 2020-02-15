@@ -1,6 +1,6 @@
 #!/bin/bash
 echo 开始注册mtproxy守护进程...... &&
-wget -q https://shells.tqlzyq.ltd/mtproxy.service -O /etc/systemd/system/mtproxy.service &&
+wget -q https://raw.githubusercontent.com/chummumm/one-key-mtp/master/mtproxy.service -O /etc/systemd/system/mtproxy.service &&
 location=$(find / -name mtprotoproxy.py) &&
 sed -i "s#mtprotoproxy.py#$location#g" /etc/systemd/system/mtproxy.service && 
 systemctl daemon-reload && 
