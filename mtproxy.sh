@@ -18,7 +18,7 @@ systemctl daemon-reload &&
 systemctl enable mtproxy &&
 systemctl start mtproxy &&
 echo 完成. &&
-echo mtproxy.service已注册,通过systemctl status mtproxy可查看配置信息(如果有防火墙请手动放行端口). &&
+echo 'mtproxy.service已注册,通过systemctl status mtproxy可查看配置信息(如果有防火墙请手动放行端口).' &&
 echo 当手机用户使用systemctl status mtproxy查看配置信息显示不全时请使用方向键右键进行查看. &&
 echo '删除mtproxy及其守护进程请运行：wget --no-check-certificate https://raw.githubusercontent.com/chummumm/one-key-mtp/master/deletemtproxy.sh && bash deletemtproxy.sh' &&
 rm -- "$0"
