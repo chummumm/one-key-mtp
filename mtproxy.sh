@@ -17,7 +17,7 @@ else
     sed -i "s/1973/$num/g" /etc/mtproxy/config.py 
   fi
 fi &&
-echo 正在随机生成secret &&
+echo 正在随机生成secret...... &&
 secret=$(head -c 16 /dev/urandom | xxd -ps) &&
 sed -i "s/0000000054655212aa12221200000001/$secret/g" /etc/mtproxy/config.py &&
 sed -i 's/"secure": False,/"secure": True,/g' /etc/mtproxy/config.py
