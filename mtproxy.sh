@@ -9,7 +9,14 @@ fi &&
 git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy &&
 echo -n '请输入mtproxy运行端口:'
 read num &&
-sed -i "s/1973/$num/g" /etc/mtproxy/config.py &&
+if [ ! -n "$num" ]; then
+  echo -e '\033[32m端口已设置为默认（1973）\033[0m'
+else
+  judge=`echo "$num*1" | bc ` &&
+  if [ $judge -ne 0 ]; then
+    sed -i "s/1973/$num/g" /etc/mtproxy/config.py 
+  fi
+fi &&
 echo 正在随机生成secret &&
 secret=$(head -c 16 /dev/urandom | xxd -ps) &&
 sed -i "s/0000000054655212aa12221200000001/$secret/g" /etc/mtproxy/config.py &&
