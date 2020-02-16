@@ -3,6 +3,9 @@ echo 开始安装mtproxy &&
 apt update &&
 apt install git python3-pip xxd -y &&
 pip3 install cryptography &&
+if [ -d "/etc/mtproxy" ]; then
+  rm -rf /etc/mtproxy
+fi &&
 git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy &&
 echo -n '请输入mtproxy运行端口:'
 read num &&
