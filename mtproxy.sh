@@ -34,7 +34,7 @@ fi &&
 STR="$domain" &&
 HEXVAL=$(xxd -pu <<< "$STR") &&
 hexdomain=${HEXVAL%0a} &&
-ip=$(curl ip.sb) &&
+ip=$(curl -4 -k ip.sb) &&
 echo 开始注册mtproxy守护进程...... &&
 wget -q --no-check-certificate https://raw.githubusercontent.com/chummumm/one-key-mtp/master/mtproxy.service -O /etc/systemd/system/mtproxy.service &&
 sed -i "s/mtprotoproxy.py/\/etc\/mtproxy\/mtprotoproxy.py/g" /etc/systemd/system/mtproxy.service && 
