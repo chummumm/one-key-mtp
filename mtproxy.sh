@@ -1,6 +1,5 @@
 #!/bin/bash
 echo 开始安装mtproxy
-echo 正在安装必须软件......
 yum update -y 2>/dev/null
 yum install git python3-pip curl xxd bc -y 2>/dev/null
 apt update 2>/dev/null
