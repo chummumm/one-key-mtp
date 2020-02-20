@@ -51,5 +51,8 @@ echo -e '\033[32m请使用 systemctl status mtproxy 命令查看证书是否获�
 echo -e '\033[32m代理信息：\033[0m'
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=dd$secret\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=ee$secret$hexdomain\033[0m"
+echo -e "\033tg://proxy?server=$ip&port=$num&secret=dd$secret\033[0m" > /etc/mtproxy/secret
+echo -e "\033tg://proxy?server=$ip&port=$num&secret=ee$secret$hexdomain\033[0m" >> /etc/mtproxy/secret
+echo '后续查看密码可使用cat /etc/mtproxy/secret'
 echo '删除mtproxy及其守护进程请运行： wget --no-check-certificate https://raw.githubusercontent.com/chummumm/one-key-mtp/master/deletemtproxy.sh && bash deletemtproxy.sh'
 rm -- "$0"
