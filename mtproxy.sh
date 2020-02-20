@@ -1,7 +1,9 @@
 #!/bin/bash
 echo 开始安装mtproxy &&
-apt update &&
-apt install git python3-pip curl xxd bc -y &&
+yum update -y >/dev/null 2>&1
+yum install git python3-pip curl xxd bc -y >/dev/null 2>&1
+apt update >/dev/null 2>&1
+apt install git python3-pip curl xxd bc -y >/dev/null 2>&1
 pip3 install cryptography &&
 if [ -d "/etc/mtproxy" ]; then
   rm -rf /etc/mtproxy
