@@ -48,7 +48,7 @@ echo "完成."
 clear
 echo "mtproxy.service已注册"
 echo -e "\033[34m请手动放行防火墙端口\033[0m"
-echo -e "\033[32m请使用 systemctl status mtproxy 命令查看证书是否获取成功！！！！！！\033[0m"
+echo -e "\033[33m请使用 systemctl status mtproxy 命令查看证书是否获取成功！！！！！！\033[0m"
 echo -e "\033[32m代理信息：\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=dd$secret\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=ee$secret$hexdomain\033[0m"
