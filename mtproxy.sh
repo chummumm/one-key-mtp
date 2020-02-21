@@ -47,13 +47,13 @@ systemctl restart mtproxy
 echo "完成."
 clear
 echo "mtproxy.service已注册"
-echo -e "\033[36m请手动放行防火墙端口\033[0m"
+echo -e "\033[34m请手动放行防火墙端口\033[0m"
 echo -e "\033[33m请使用 systemctl status mtproxy 命令查看证书是否获取成功！！！！！！\033[0m"
 echo -e "\033[32m代理信息：\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=dd$secret\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=ee$secret$hexdomain\033[0m"
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=dd$secret\033[0m" > /etc/mtproxy/secret
 echo -e "\033[32mtg://proxy?server=$ip&port=$num&secret=ee$secret$hexdomain\033[0m" >> /etc/mtproxy/secret
-echo -e "\033[34m后续查看配置信息可使用 cat /etc/mtproxy/secret\033[0m"
+echo -e "\033[36m后续查看配置信息可使用 cat /etc/mtproxy/secret\033[0m"
 echo "删除mtproxy及其守护进程请运行： wget --no-check-certificate https://raw.githubusercontent.com/chummumm/one-key-mtp/master/deletemtproxy.sh && bash deletemtproxy.sh"
 rm -- "$0"
