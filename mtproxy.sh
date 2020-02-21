@@ -32,7 +32,7 @@ if [ ! -n "$domain" ]; then
   domain=www.cloudflare.com
 else
   sed -i "s/www.cloudflare.com/$domain/g" /etc/mtproxy/config.py 
-fi &&
+fi
 STR="$domain"
 HEXVAL=$(xxd -pu <<< "$STR")
 hexdomain=${HEXVAL%0a}
