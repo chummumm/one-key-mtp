@@ -39,7 +39,7 @@ secret=$(head -c 16 /dev/urandom | xxd -ps)
 sed -i "s/0000000054655212aa12221200000001/$secret/g" /etc/mtproxy/config.py
 sed -i 's/"secure": False,/"secure": True,/g' /etc/mtproxy/config.py
 sed -i 's/AD_TAG/#AD_TAG/g' /etc/mtproxy/config.py
-echo -n "请输入需要伪装的域名:"
+echo -n -e "\033[32m请输入需要伪装的域名:\033[0m"
 read domain
 if [ ! -n "$domain" ]; then
   echo -e "\033[32m使用默认伪装域名（www.cloudflare.com）\033[0m"
