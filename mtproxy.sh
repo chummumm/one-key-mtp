@@ -1,23 +1,35 @@
 #!/bin/bash
 echo "开始安装mtproxy"
 apt update 2>/dev/null
-apt install git python3-pip curl xxd bc -y 2>/dev/null
+apt install git python3-pip curl xxd bc lsof -y 2>/dev/null
 yum update -y 2>/dev/null
-yum install git python3-pip curl vim-common bc -y 2>/dev/null
+yum install git python3-pip curl vim-common bc lsof -y 2>/dev/null
 pip3 install cryptography
 if [ -d "/etc/mtproxy" ]; then
   rm -rf /etc/mtproxy
 fi
 git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy
-echo -n "请输入mtproxy运行端口:"
+echo -n -e "\033[32m请输入mtproxy运行端口:\033[0m"
 read num
 if [ ! -n "$num" ]; then
   echo -e "\033[32m端口已设置为默认（1973）\033[0m"
   num=1973
 else
   judge=`echo "$num*1" | bc `
-  if [ $judge -ne 0 ]; then
-    sed -i "s/1973/$num/g" /etc/mtproxy/config.py 
+  if [ $judge -ne 0 2>/dev/null ]; then
+    echo "正在判断端口是否被占用......"
+    port_test=`lsof -i:$num | grep -v "PID" | awk '{print $2}'`
+    if [ "$port_test" != "" ]; then
+      echo -e "\033[31m端口已被占用\033[0m"
+      rm -- "$0"
+      exit 0
+    else
+      sed -i "s/1973/$num/g" /etc/mtproxy/config.py
+    fi
+  else
+    echo -e "\033[31m输入错误，端口号应为整数\033[0m"
+    rm -- "$0"
+    exit 0
   fi
 fi
 echo "正在随机生成secret......"
