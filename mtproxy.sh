@@ -6,9 +6,14 @@ apt install git python3-pip curl xxd bc lsof -y 2>/dev/null
 yum update -y 2>/dev/null
 yum install git python3-pip curl vim-common bc lsof -y 2>/dev/null
 pip3 install cryptography
-if [ -f "/etc/systemd/system/mtproxy.service" ]; then
-  systemctl stop mtproxy 2>/dev/null
-  systemctl disable mtproxy 2>/dev/null
+pid=`ps aux | grep mtprotoproxy.py | grep -v "grep" | awk '{print $2}'`
+if [ "$pid" != "" ]; then
+  if [ -f "/etc/systemd/system/mtproxy.service" ]; then
+    systemctl stop mtproxy
+    systemctl disable mtproxy
+  else
+    kill -9 $pid
+  fi
 fi
 if [ -d "/etc/mtproxy" ]; then
   rm -rf /etc/mtproxy
