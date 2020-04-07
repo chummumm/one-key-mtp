@@ -18,15 +18,15 @@ fi
 if [ -d "/etc/mtproxy" ]; then
   rm -rf /etc/mtproxy
 fi
-success=0
 git clone https://github.com/chummumm/mtprotoproxy.git /etc/mtproxy
-until [ $success = 1 ]
+while :
 do
   echo -n -e "\033[32m请输入mtproxy运行端口:\033[0m"
   read num
   if [ ! -n "$num" ]; then
     echo -e "\033[32m端口已设置为默认（1973）\033[0m"
     num=1973
+    break
   else
     judge=`echo "$num*1" | bc `
     if [ $judge -ne 0 2>/dev/null ]; then
@@ -36,7 +36,7 @@ do
         echo -e "\033[31m端口已被占用\033[0m"
       else
         sed -i "s/1973/$num/g" /etc/mtproxy/config.py
-	success=1
+	break
       fi
     else
       echo -e "\033[31m输入错误，端口号应为整数\033[0m"
