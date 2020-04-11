@@ -1,7 +1,3 @@
----
-description: 适合小白用户的一键MTP脚本
----
-
 # ONE-KEY-MTP
 
 安装mtproxy及其守护进程请运行：wget --no-check-certificate -O mtproxy.sh https://raw.githubusercontent.com/chummumm/one-key-mtp/master/mtproxy.sh && bash mtproxy.sh
