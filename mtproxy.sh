@@ -31,7 +31,7 @@ do
     judge=`echo "$num*1" | bc `
     if [ $judge -ne 0 2>/dev/null ]; then
       echo "正在判断端口是否被占用......"
-      port_test=`lsof -i:$num | grep -v "PID" | awk '{print $2}'`
+      port_test=`lsof -i:$num | grep -i listen | grep -v "PID" | awk '{print $2}'`
       if [ "$port_test" != "" ]; then
         echo -e "\033[31m端口已被占用\033[0m"
       else
